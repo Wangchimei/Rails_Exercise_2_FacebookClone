@@ -1,5 +1,9 @@
 <h1>アカウント情報</h1>
 
+<div class="">
+<%=notice%>
+</div>
+
 <div>
 <p>名前：<%= @user.name %></p>
 </div>
@@ -8,7 +12,7 @@
 </div>
 
 <div class="">
-<%= link_to "情報を更新", users_edit%>
+<%= link_to "情報を更新", edit_user_path%>
 </div>
 
 <div class="">

@@ -28,7 +28,7 @@ class FeedsController < ApplicationController
 
   def update
     if @feed.update(feed_params)
-      redirect_to feeds_path, notice: "#{@feed.title}を更新されました"
+      redirect_to feeds_path, notice: "#{@feed.title}が更新されました"
     else
       render :edit
     end

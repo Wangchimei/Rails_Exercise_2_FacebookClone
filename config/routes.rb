@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'users/new'
-  get 'users/edit'
   resources :feeds do
     collection do 
       post :confirm
@@ -8,6 +6,7 @@ Rails.application.routes.draw do
   end
   
   resources :users, only: [:new, :create, :edit, :update, :show]
- 
+  resources :sessions, only: [:new, :create, :destroy]
+  
   root 'feeds#index'
 end
