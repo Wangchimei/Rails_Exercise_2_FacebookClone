@@ -9,8 +9,6 @@
   <%= f.label :email, "メールアドレス"%>
   <%= f.text_field :email%>
 </div>
-<div>
-  <%= f.hidden_field :password, value: "#{@user.password_digest}"%>
-</div>
-<%= f.submit%>
+
+<%= f.submit "保存"%>
 <%end%>

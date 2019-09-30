@@ -24,7 +24,12 @@ class UsersController < ApplicationController
     end
   end
   
-  def show; end
+  def show
+    if session[:user_id] != params[:id].to_i
+      flash[:notice] = "権限がありません"
+      redirect_to "/users/#{session[:user_id]}"
+    end
+  end
 
   private
 
