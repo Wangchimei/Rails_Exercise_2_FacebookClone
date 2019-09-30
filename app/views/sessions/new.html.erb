@@ -1,9 +1,5 @@
 <h1>Log in</h1>
 
-<div class="">
-<%=notice%>
-</div>
-
 <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
   <div class="">
     <%= f.label :email, "メールアドレス"%>

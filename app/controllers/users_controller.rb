@@ -18,7 +18,8 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to user_path(@user.id), notice: "情報が更新しました"
+      redirect_to user_path(@user.id)
+      flash[:notice] = "情報が更新しました"
     else
       render :edit
     end
@@ -26,7 +27,6 @@ class UsersController < ApplicationController
   
   def show
     if session[:user_id] != params[:id].to_i
-      flash[:notice] = "権限がありません"
       redirect_to "/users/#{session[:user_id]}"
     end
   end

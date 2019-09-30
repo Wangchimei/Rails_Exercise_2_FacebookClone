@@ -15,7 +15,8 @@ class FeedsController < ApplicationController
       render :new
     else 
       if @feed.save
-        redirect_to feeds_path, notice: "#{@feed.title}を投稿されました"
+        redirect_to feeds_path
+        flash[:notice] = "#{@feed.title}を投稿されました"
       else
         render :new
       end
@@ -28,7 +29,8 @@ class FeedsController < ApplicationController
 
   def update
     if @feed.update(feed_params)
-      redirect_to feeds_path, notice: "#{@feed.title}が更新されました"
+      redirect_to feeds_path
+      flash[:notice] = "#{@feed.title}が更新されました"
     else
       render :edit
     end
