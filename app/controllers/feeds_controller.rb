@@ -10,7 +10,12 @@ class FeedsController < ApplicationController
   end
 
   def create
-
+    @feed = Feed.new(feed_params)
+    if @feed.save
+      redirect_to feeds_path
+    else
+      render :new
+    end
   end
 
   def show; end
@@ -18,6 +23,11 @@ class FeedsController < ApplicationController
   def edit; end
 
   def update
+    if @feed.update(feed_params)
+      redirect_to feeds_path
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -30,6 +40,6 @@ class FeedsController < ApplicationController
   end
 
   def feed_params
-    params.require(:feed).permit(:title, :content, :image)
+    params.require(:feed).permit(:title, :content, :image, :user_id)
   end
 end
