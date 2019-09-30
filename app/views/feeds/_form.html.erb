@@ -1,0 +1,21 @@
+<%= form_with(model: feed, local: :ture) do |f|%>
+<div class="">
+  <%=f.label :title%>
+  <%=f.text_field :title%>
+</div>
+
+<div class="">
+  <%=f.label :content%>
+  <%=f.text_area :content, size: '50x10'%>
+</div>
+
+<div class="">
+  <%=f.label :image%>
+  <%=f.text_field :image%>
+</div>
+
+<div class="">
+  <%= f.submit%>
+</div>
+
+<%end%>
