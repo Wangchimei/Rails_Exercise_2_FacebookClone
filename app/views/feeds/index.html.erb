@@ -1,11 +1,14 @@
 <div class="">New Feeds</div>
-<p><%= notice %></p>
+
+<div class="">
+  <%= link_to '投稿を作成', new_feed_path %>
+</div>
 
 <div class="">
   <% @feeds.each do |feed| %>
     <div class="">
       <%# ADD USER PROFILE IMAGE %>
-      <%# ADD USER NAME %>
+      <p><%=feed.user.name%></p>
       <p>Posted <%= distance_of_time_in_words(feed.created_at, Time.now)%> ago</p>
     </div>
     <div class="">
@@ -15,11 +18,12 @@
     </div>
     <div class="">
       <%= link_to '詳細', feed_path(feed) %>
-      <%= link_to '投稿を編集', edit_feed_path(feed) %>
-      <%= link_to '削除', feed_path(feed),method: :delete, data: {confirm: "投稿を削除しますか？"} %>
     </div>
+    <% if current_user.id == feed.user_id %>
+      <div class=""> 
+        <%= link_to '投稿を編集', edit_feed_path(feed) %>
+        <%= link_to '削除', feed_path(feed),method: :delete, data: {confirm: "投稿を削除しますか？"} %>
+      </div>
+    <%end%> 
   <%end%>
-</div>
-<div class="">
-  <%= link_to '投稿を作成', new_feed_path %>
 </div>

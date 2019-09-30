@@ -1,12 +1,16 @@
-
-<%# ADD USER PROFILE IMAGE %>
-<%# ADD USER NAME %>
-<p>Published <%= distance_of_time_in_words(@feed.created_at, Time.now)%> ago</p>
-<%= @feed.title %>
-<%= @feed.content %>
-<%= @feed.image %>
-<%= link_to '戻る', feeds_path %>
-<%= link_to '投稿を編集', edit_feed_path(@feed) %>
-<%= link_to '削除', feed_path(@feed),method: :delete, data: {confirm: "投稿を削除しますか？"} %>
-
+<div class="">
+  <%# ADD USER PROFILE IMAGE %>
+  <p><%=@feed.user.name%></p>
+  <p>Published <%= distance_of_time_in_words(@feed.created_at, Time.now)%> ago</p>
+</div>
+<div class="">
+  <%= @feed.title %>
+  <%= @feed.content %>
+  <%= @feed.image %>
+</div>
+<div class="">
+  <%= link_to '戻る', feeds_path %>
+  <%= link_to '投稿を編集', edit_feed_path(@feed) %>
+  <%= link_to '削除', feed_path(@feed),method: :delete, data: {confirm: "投稿を削除しますか？"} %>
+</div>
 <%# ADD COMMENT %>

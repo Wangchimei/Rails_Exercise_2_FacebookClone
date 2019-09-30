@@ -1,18 +1,17 @@
 <h1>Confirm</h1>
 
 <%= form_with(model: @feed, local: true, url:feeds_path) do |f|%>
-
 <%= f.hidden_field :title%>
 <%= f.hidden_field :content%>
 <%= f.hidden_field :image%> 
 <%= f.hidden_field :user_id%> 
-
-<%= @feed.title %>
-<%= @feed.content %>
-<%= @feed.image %>
-
+<div class=""></div>
+  <p><%= @feed.title %></p>
+  <p><%= @feed.content %></p>
+  <p><%= @feed.image %></p>
+</div>
 <div class="">
-<%= f.submit "Confirm"%>
-<%= f.submit "Back", name: "back"%>
+  <%= f.submit "Confirm"%>
+  <%= f.submit "Back", name: "back"%>
 </div>
 <%end%>
