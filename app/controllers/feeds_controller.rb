@@ -11,10 +11,14 @@ class FeedsController < ApplicationController
 
   def create
     @feed = Feed.new(feed_params)
-    if @feed.save
-      redirect_to feeds_path
-    else
+    if params[:back]
       render :new
+    else 
+      if @feed.save
+        redirect_to feeds_path
+      else
+        render :new
+      end
     end
   end
 
@@ -28,6 +32,11 @@ class FeedsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def confirm
+    @feed = Feed.new(feed_params)
+    render :new if @feed.invalid?
   end
 
   def destroy
