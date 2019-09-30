@@ -10,7 +10,9 @@
 </div>
 <div class="">
   <%= link_to '戻る', feeds_path %>
-  <%= link_to '投稿を編集', edit_feed_path(@feed) %>
-  <%= link_to '削除', feed_path(@feed),method: :delete, data: {confirm: "投稿を削除しますか？"} %>
+  <% if current_user.id == @feed.user_id %>
+    <%= link_to '投稿を編集', edit_feed_path(@feed) %>
+    <%= link_to '削除', feed_path(@feed),method: :delete, data: {confirm: "投稿を削除しますか？"} %>
+  <%end%>
 </div>
 <%# ADD COMMENT %>
