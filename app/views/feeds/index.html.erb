@@ -1,2 +1,24 @@
-<h1>Feeds#index</h1>
-<p>Find me in app/views/feeds/index.html.erb</p>
+<div class="">New Feeds</div>
+
+<div class="">
+  <% @feeds.each do |feed| %>
+    <div class="">
+      <%# ADD USER PROFILE IMAGE %>
+      <%# ADD USER NAME %>
+      <p>Published <%= distance_of_time_in_words(feed.created_at, Time.now)%> ago</p>
+    </div>
+    <div class="">
+      <p><%= feed.title %></p>
+      <p><%= feed.content %></p>
+      <p><%= feed.image %></p>  
+    </div>
+    <div class="">
+      <%= link_to '詳細', feed_path(feed) %>
+      <%= link_to '投稿を編集', edit_feed_path(feed) %>
+      <%= link_to '削除', feed_path(feed),method: :delete, data: {confirm: "投稿を削除しますか？"} %>
+    </div>
+  <%end%>
+</div>
+<div class="">
+  <%= link_to '投稿を作成', new_feed_path %>
+</div>
