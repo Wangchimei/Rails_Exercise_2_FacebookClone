@@ -31,6 +31,8 @@ class FeedsController < ApplicationController
   end
 
   def destroy
+    @feed.destroy
+    redirect_to feeds_path
   end
 
   private
