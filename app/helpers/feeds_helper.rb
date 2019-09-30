@@ -6,4 +6,12 @@ module FeedsHelper
       feed_path
     end
   end
+
+  def button_text
+    if action_name == "new"
+       return "投稿"
+    elsif action_name == "edit"
+       return "保存"
+    end
+  end
 end
