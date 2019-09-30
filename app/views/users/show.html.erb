@@ -1,1 +1,17 @@
-SHOW
+<h1>アカウント情報</h1>
+
+<div>
+<p>名前：<%= @user.name %></p>
+</div>
+<div>
+<p>メールアドレス：<%= @user.email %></p>
+</div>
+
+<div class="">
+<%= link_to "情報を更新", users_edit%>
+</div>
+
+<div class="">
+<%= link_to "フィード一覧", feeds_path%>
+<%= link_to "投稿を作成", new_feed_path%>
+</div>
