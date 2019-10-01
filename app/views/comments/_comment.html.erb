@@ -3,6 +3,8 @@
   <%= distance_of_time_in_words(comment.created_at, Time.now)%> ago
   <%= comment.user.name%>
   <%= comment.content %>
-  <%= link_to 'Delete', [comment.feed, comment],
-              method: :delete, data: { confirm: 'コメントを削除しますか？' } %>
+  <% if current_user.id == comment.user_id %>
+    <%= link_to 'Delete', [comment.feed, comment],
+                method: :delete, data: { confirm: 'コメントを削除しますか？' } %>
+  <%end%>
 </div>

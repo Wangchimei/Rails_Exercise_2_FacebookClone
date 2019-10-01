@@ -18,7 +18,7 @@
     <div class="">
       <%= link_to '詳細', feed_path(feed) %>
     </div>
-    <% if session[:user_id] == feed.user_id %>
+    <% if current_user.id == feed.user_id %>
       <div class=""> 
         <%= link_to '投稿を編集', edit_feed_path(feed) %>
         <%= link_to '削除', feed_path(feed),method: :delete, data: {confirm: "投稿を削除しますか？"} %>
