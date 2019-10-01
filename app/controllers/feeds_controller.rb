@@ -23,7 +23,7 @@ class FeedsController < ApplicationController
     else 
       if @feed.save
         redirect_to feeds_path
-        flash[:notice] = "#{@feed.title}を投稿されました"
+        flash[:notice] = "フィードが投稿されました"
       else
         render :new
       end
@@ -39,7 +39,7 @@ class FeedsController < ApplicationController
   def update
     if @feed.update(feed_params)
       redirect_to feeds_path
-      flash[:notice] = "#{@feed.title}が更新されました"
+      flash[:notice] = "フィードが更新されました"
     else
       render :edit
     end
@@ -53,7 +53,7 @@ class FeedsController < ApplicationController
   def destroy
     @feed.destroy
     redirect_to feeds_path
-    flash[:notice] = "#{@feed.title}を削除しました"
+    flash[:notice] = "フィードが削除されました"
   end
 
   private
@@ -63,6 +63,6 @@ class FeedsController < ApplicationController
   end
 
   def feed_params
-    params.require(:feed).permit(:title, :content, :image, :image_cache, :user_id)
+    params.require(:feed).permit(:content, :image, :image_cache, :user_id)
   end
 end

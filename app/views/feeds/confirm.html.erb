@@ -1,13 +1,11 @@
 <h1>Confirm</h1>
 
 <%= form_with(model: @feed, local: true, url:feeds_path) do |f| %>
-  <%= f.hidden_field :title %>
   <%= f.hidden_field :content %>
   <%= image_tag(@feed.image.url) if @feed.image && @feed.image.url %>
   <%= f.hidden_field :image_cache %> 
   <%= f.hidden_field :user_id %> 
   <div class=""></div>
-    <p><%= @feed.title %></p>
     <p><%= @feed.content %></p>
     <%= f.submit "投稿する"%>
     <%= f.submit "戻る", name: "back"%>

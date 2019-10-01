@@ -64,3 +64,5 @@ gem 'bcrypt', '3.1.11'
 
 gem 'carrierwave'
 gem 'mini_magick'
+
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'

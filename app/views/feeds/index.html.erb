@@ -12,7 +12,6 @@
       <p>Posted <%= distance_of_time_in_words(feed.created_at, Time.now)%> ago</p>
     </div>
     <div class="">
-      <p><%= feed.title %></p>
       <p><%= feed.content %></p>
       <p><%= image_tag feed.image.url if feed.image.url %></p>  
     </div>
