@@ -1,4 +1,4 @@
-<div class="">New Feeds</div>
+<div class="">ニュースフィード</div>
 
 <div class="">
   <%= link_to '投稿を作成', new_feed_path %>
@@ -9,7 +9,7 @@
     <div class="">
       <p><%= avatar(feed.user) %></p>
       <p><%=feed.user.name%></p>
-      <p>Posted <%= distance_of_time_in_words(feed.created_at, Time.now)%> ago</p>
+      <p><%= distance_of_time_in_words(feed.created_at, Time.now)%>前</p>
     </div>
     <div class="">
       <p><%= feed.content %></p>

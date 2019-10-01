@@ -1,6 +1,6 @@
 <div>
   <%= avatar(comment.user) %>
-  <%= distance_of_time_in_words(comment.created_at, Time.now)%> ago
+  <%= distance_of_time_in_words(comment.created_at, Time.now)%>前
   <%= comment.user.name%>
   <%= comment.content %>
   <% if current_user.id == comment.user_id %>
