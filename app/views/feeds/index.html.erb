@@ -14,9 +14,7 @@
     <div class="">
       <p><%= feed.title %></p>
       <p><%= feed.content %></p>
-      <% if feed.image.present? %>
-        <p><%= image_tag feed.image.url%></p>  
-      <%end%>
+      <p><%= image_tag feed.image.url if feed.image.url %></p>  
     </div>
     <div class="">
       <%= link_to '詳細', feed_path(feed) %>

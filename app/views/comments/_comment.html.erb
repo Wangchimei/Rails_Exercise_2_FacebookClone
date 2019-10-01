@@ -1,0 +1,8 @@
+<div>
+  <%= avatar(comment.user) %>
+  <%= distance_of_time_in_words(comment.created_at, Time.now)%> ago
+  <%= comment.user.name%>
+  <%= comment.content %>
+  <%= link_to 'Delete', [comment.feed, comment],
+              method: :delete, data: { confirm: 'コメントを削除しますか？' } %>
+</div>
