@@ -8,8 +8,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      # binding.irb
       redirect_to user_path(@user.id)
+      flash[:notice] = "登録が完了しました"
     else
       render :new
     end
@@ -27,11 +27,13 @@ class UsersController < ApplicationController
   end
   
   def show
-    # if session[:user_id] != params[:id].to_i
-    if current_user != @user
-      # redirect_to "/users/#{session[:user_id]}"
-      redirect_to user_path(current_user)
-      # render :file => "#{Rails.root}/public/404.html", layout: false, status: :not_found
+    if logged_in?
+      if current_user != @user
+        # redirect_to user_path(current_user)
+        render :file => "#{Rails.root}/public/404.html", layout: false, status: :not_found
+      end
+    else
+      redirect_to new_session_path
     end
   end
 
