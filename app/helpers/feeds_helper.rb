@@ -14,4 +14,14 @@ module FeedsHelper
        return "保存"
     end
   end
+
+  # def avatar(feed)
+  #   @avatar = feed.user.avatar.url
+  #   if @avatar.nil?
+  #       @avatar_user = image_tag("default-user.png")
+  #   else
+  #       @avatar_user = image_tag(@avatar)
+  #   end
+  #   @avatar_user
+  # end
 end

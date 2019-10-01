@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      # binding.irb
       redirect_to user_path(@user.id)
     else
       render :new
@@ -26,8 +27,11 @@ class UsersController < ApplicationController
   end
   
   def show
-    if current_user.id != params[:id].to_i
-      redirect_to "/users/#{current_user.id}"
+    # if session[:user_id] != params[:id].to_i
+    if current_user != @user
+      # redirect_to "/users/#{session[:user_id]}"
+      redirect_to user_path(current_user)
+      # render :file => "#{Rails.root}/public/404.html", layout: false, status: :not_found
     end
   end
 
@@ -38,6 +42,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar, :avatar_cache)
   end
 end

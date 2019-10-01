@@ -7,7 +7,7 @@
 <div class="">
   <% @feeds.each do |feed| %>
     <div class="">
-      <%# ADD USER PROFILE IMAGE %>
+      <p><%= avatar(feed.user) %></p>
       <p><%=feed.user.name%></p>
       <p>Posted <%= distance_of_time_in_words(feed.created_at, Time.now)%> ago</p>
     </div>
@@ -21,7 +21,7 @@
     <div class="">
       <%= link_to '詳細', feed_path(feed) %>
     </div>
-    <% if current_user.id == feed.user_id %>
+    <% if session[:user_id] == feed.user_id %>
       <div class=""> 
         <%= link_to '投稿を編集', edit_feed_path(feed) %>
         <%= link_to '削除', feed_path(feed),method: :delete, data: {confirm: "投稿を削除しますか？"} %>

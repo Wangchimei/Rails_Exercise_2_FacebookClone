@@ -1,5 +1,5 @@
 <div class="">
-  <%# ADD USER PROFILE IMAGE %>
+  <p><%=@feed.avatar(@user)%></p>
   <p><%=@feed.user.name%></p>
   <p>Published <%= distance_of_time_in_words(@feed.created_at, Time.now)%> ago</p>
 </div>
