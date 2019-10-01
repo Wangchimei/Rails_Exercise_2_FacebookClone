@@ -1,12 +1,12 @@
 <div class="">
-  <p><%=@feed.avatar(@user)%></p>
+  <p><%=avatar(@feed.user)%></p>
   <p><%=@feed.user.name%></p>
   <p>Published <%= distance_of_time_in_words(@feed.created_at, Time.now)%> ago</p>
 </div>
 <div class="">
   <%= @feed.title %>
   <%= @feed.content %>
-  <%= image_tag @feed.image.url %>
+  <%= image_tag @feed.image.url if @feed.image.url%>
 </div>
 <div class="">
   <%= link_to '戻る', feeds_path %>

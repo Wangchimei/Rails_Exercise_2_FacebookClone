@@ -1,5 +1,8 @@
-<h1>新規アカウントを作成</h1>
-<h2>簡単に登録できます。</h2>
+<div class="">
+  <p>新規アカウントを作成</p>
+  <p>簡単に登録できます。</p>
+</div>
+
 
 <% if @user.errors.any? %>
   <div class="">
@@ -10,25 +13,25 @@
 <%end%>
 
 <%= form_with(model:@user, local: true) do |f| %>
-<div>
-  <%= f.hidden_field :avatar%>
-</div>
-<div>
-  <%= f.label :name, "名前"%>
-  <%= f.text_field :name%>
-</div>
-<div>
-  <%= f.label :email, "メールアドレス"%>
-  <%= f.text_field :email%>
-</div>
-<div>
-  <%= f.label :password, "パスワード"%>
-  <%= f.text_field :password%>
-  <p>パスワードの長さは最低6文字です。</p>
-</div>
-<div>
-  <%= f.label :password_confirmation, "パスワード再入力"%>
-  <%= f.text_field :password_confirmation%>
-</div>
-<%= f.submit "アカウントを作成"%>
+  <div>
+    <%= f.hidden_field :avatar%>
+  </div>
+  <div>
+    <%= f.label :name, "名前"%>
+    <%= f.text_field :name%>
+  </div>
+  <div>
+    <%= f.label :email, "メールアドレス"%>
+    <%= f.text_field :email%>
+  </div>
+  <div>
+    <%= f.label :password, "パスワード"%>
+    <%= f.password_field :password%>
+    <p>パスワードの長さは最低6文字です。</p>
+  </div>
+  <div>
+    <%= f.label :password_confirmation, "パスワード再入力"%>
+    <%= f.password_field :password_confirmation%>
+  </div>
+  <div><%= f.submit "アカウントを作成"%></div>
 <%end%>
