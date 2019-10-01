@@ -20,7 +20,9 @@
 
 <div class="">
   <%=f.label :image%>
-  <%=f.text_field :image%>
+  <%=image_tag(@feed.image.url) if @feed.image && @feed.image.url%>
+  <%=f.file_field :image%>
+  <%=f.hidden_field :image_cache%>
 </div>
 
 <div class="">
