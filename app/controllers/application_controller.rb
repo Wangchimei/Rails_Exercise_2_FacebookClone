@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   def logged_in_status
     unless logged_in?
-      flash[:danger] = "アカウントにログインしてください"
+      flash[:danger] = "ログインが必要です。"
       redirect_to new_session_path
     end
   end
