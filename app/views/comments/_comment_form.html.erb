@@ -1,0 +1,9 @@
+<%= form_with(model: @comment, local: true, url: feed_comments_path(@feed.id)) do |f| %>
+  <div class="">
+    <%= f.text_field :content %>
+    <%= f.hidden_field :feed_id, value: @feed.id %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+  </div>
+
+  <%= f.submit "コメントする" %>
+<% end %>

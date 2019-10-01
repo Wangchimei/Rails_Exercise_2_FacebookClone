@@ -1,12 +1,12 @@
 <div class="">
-  <p><%=@feed.avatar(@user)%></p>
+  <p><%=avatar(@feed.user)%></p>
   <p><%=@feed.user.name%></p>
   <p>Published <%= distance_of_time_in_words(@feed.created_at, Time.now)%> ago</p>
 </div>
 <div class="">
   <%= @feed.title %>
   <%= @feed.content %>
-  <%= image_tag @feed.image.url %>
+  <%= image_tag @feed.image.url if @feed.image.url %>
 </div>
 <div class="">
   <%= link_to '戻る', feeds_path %>
@@ -15,4 +15,16 @@
     <%= link_to '削除', feed_path(@feed),method: :delete, data: {confirm: "投稿を削除しますか？"} %>
   <%end%>
 </div>
-<%# ADD COMMENT %>
+
+<% unless @feed.comments.count.zero? %>
+  <p>
+    コメント<%= @feed.comments.count%>件
+  </p>
+  <p>
+    <%= render @feed.comments %>
+  </p>
+<% end %>
+
+<p>
+  <%= render partial: 'comments/comment_form', comment: @comment, feed: @feed %>
+</p>
