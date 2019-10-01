@@ -1,5 +1,8 @@
 class FeedsController < ApplicationController
   before_action :set_feed, only: [:show, :edit, :update, :destroy]
+  skip_before_action :logged_in_status, only: [:home]
+
+  def home; end
   
   def index
     @feeds = Feed.all.order(created_at: :desc)
@@ -50,6 +53,7 @@ class FeedsController < ApplicationController
   def destroy
     @feed.destroy
     redirect_to feeds_path
+    flash[:notice] = "#{@feed.title}を削除しました"
   end
 
   private
