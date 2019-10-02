@@ -9,19 +9,23 @@
     <%= stylesheet_link_tag 'users' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <body>
-    <%=render 'shared/application_nav'%>
+  <body class="site-wrapper">
+    <main role="main" class="flex-shrink-0">
+      <div class="container">
     
-    <div class="">
+        <%=render "shared/application_nav"%>
 
-    <% flash.each do |key, value| %>
-      <div class="alert alert-info">
-      <%= content_tag(:div, value, class: "#{key}") %>
+        <% flash.each do |key, value| %>
+          <div class="alert alert-info">
+          <%= content_tag(:div, value, class: "#{key}") %>
+          </div>
+        <% end %>
+
+        <div class="main-content">
+          <%= yield %>
+        </div>
       </div>
-    <% end %>
-
-    <%= yield %>
-    </div>
+    </main>
+    <%=render "shared/footer"%>
   </body>
 </html>

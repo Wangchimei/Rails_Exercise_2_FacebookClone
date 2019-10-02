@@ -25,3 +25,30 @@
   border-bottom: 3px solid #f4f4f4;
   color: #f4f4f4;
 }
+
+//footer
+.site-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}
+
+.footer {
+  background-color: #f5f5f5;
+}
+
+
+// Show page
+.btn-secondary {
+  background-color: #216EBB !important;
+  border: #216EBB;
+}
+
+.btn-secondary:hover {
+  background-color: #0761bb !important;
+  border: #0761bb;
+}

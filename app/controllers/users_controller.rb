@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :show]
   # skip_before_action :logged_in_status,only:[:new, :create]
   # layout 'session', only:[:new, :create]
-  # layout 'user', only: [:edit, :update, :show]
+  layout 'user', only: [:edit, :update, :show]
 
   def new
     @user = User.new
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    render layout:'user'
+
   end
 
   def update
@@ -31,19 +31,19 @@ class UsersController < ApplicationController
     else
       render :edit
     end
-    render layout:'user'
+
   end
   
   def show
     if logged_in?
       if current_user != @user
-        # redirect_to user_path(current_user)
-        render :file => "#{Rails.root}/public/404.html", layout: false, status: :not_found
+        redirect_to user_path(current_user)
+        # render :file => "#{Rails.root}/public/404.html", layout: false, status: :not_found
       end
     else
       redirect_to new_session_path
     end
-    render layout:'user'
+
   end
 
   private

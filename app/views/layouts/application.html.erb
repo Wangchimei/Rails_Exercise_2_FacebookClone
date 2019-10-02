@@ -10,31 +10,21 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-  <%=render 'shared/application_nav'%>
-  <div class="container-fluid">
-
-    <% flash.each do |key, value| %>
-    <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
-
-    <% if logged_in? %>
-      <div class="">
-        <%= link_to "投稿を作成", new_feed_path%>
-        <%= link_to "フィード一覧", feeds_path%>
+  <body class="site-wrapper">
+    <main role="main" class="flex-shrink-0">
+      <div class="container">
+  
+        <%=render 'shared/application_nav'%>
+  
+        <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "#{key}") %>
+        <% end %>
+        
+        <div class="main-content">
+        <%= yield %>
+        </div>
       </div>
-      <div class="">
-        <%= link_to "プロフィール", user_path(current_user.id) %>
-        <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
-      </div>
-    <% else %>
-      <div class="">
-        <%= link_to "新規登録", new_user_path %>
-        <%= link_to "ログイン", new_session_path %>
-      </div>
-    <% end %>
-
-    <%= yield %>
-    </div>
+    </main>
+    <%=render "shared/footer"%>
   </body>
 </html>
