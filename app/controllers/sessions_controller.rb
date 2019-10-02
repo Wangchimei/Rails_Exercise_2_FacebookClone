@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   # skip_before_action :logged_in_status
-  layout 'sessions'
+  layout 'session'
   
   def new
     @user = User.new
