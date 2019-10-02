@@ -43,6 +43,14 @@
 
 
 // Show page
+.card {
+  box-shadow: 0 4px 8px 0 #707070;
+  max-width: 420px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
 .btn-secondary {
   background-color: #216EBB !important;
   border: #216EBB;

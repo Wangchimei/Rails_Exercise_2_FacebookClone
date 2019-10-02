@@ -1,18 +1,11 @@
-<h1>アカウント情報</h1>
+<h2 class="h4 mt-4 text-center">アカウント情報</h2>
 
-<div>
-  <p><%= label :avatar, "プロフィール写真" %></p>
-  <p class:"rounded-circle"><%= avatar(@user) %></p>
-</div>
-<div>
-  <p><%= label :name, "名前" %></p>
-  <p><%= @user.name %></p>
-</div>
-<div>
-<p><%= label :email, "メールアドレス" %></p>
-<p><%= @user.email %></p>
-</div>
+<div class="card">
+  <p class="mt-4"><%= avatar(@user) %></p>
+  
+  <p class="h4 mt-2 text-dark"><%= @user.name %></p>
 
-<div class="">
-<%= link_to "情報を更新", edit_user_path, class: "btn btn-secondary"%>
+  <p class="h5 mt-2 text-muted"><%= @user.email %></p>
+
+  <p class="mt-4"><%= link_to "情報を更新", edit_user_path, class: "btn btn-secondary"%></p>
 </div>
