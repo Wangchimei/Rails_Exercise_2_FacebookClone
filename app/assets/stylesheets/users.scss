@@ -48,7 +48,30 @@
   max-width: 420px;
   margin: auto;
   text-align: center;
-  font-family: arial;
+}
+
+.card-form {
+  max-width: 380px;
+  margin: auto;
+}
+
+.uploader {
+  max-width: 300px;
+  margin: auto;
+}
+
+.carrierwave-field {
+  max-width: 300px;
+  margin: auto;
+  border: none;
+  display: inline-block;
+  padding: 8px;
+  color: #AFAFAF;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
 }
 
 .btn-secondary {
