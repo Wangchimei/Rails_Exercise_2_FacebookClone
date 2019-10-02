@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   resources :feeds do
     resources :comments, only: [:create, :destroy]
   end
-
+  
   resources :users, only: [:new, :create, :edit, :update, :show]
   resources :sessions, only: [:new, :create, :destroy]
   
-  root 'feeds#home'
+  root to: 'feeds#home'
 end

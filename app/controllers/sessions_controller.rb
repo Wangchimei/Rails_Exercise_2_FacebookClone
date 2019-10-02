@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-  skip_before_action :logged_in_status
+  # skip_before_action :logged_in_status
+  layout 'sessions'
   
   def new
   end
@@ -7,8 +8,8 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
-      session[:user_id] = user.id
-      redirect_to user_path(user.id)
+      log_in user
+      redirect_to feeds_path
       flash[:notice] = "ログインしました"
     else
       flash.now[:danger] = "メールアドレスもしくはパスワードが正しくありません。"
@@ -17,8 +18,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.delete(:user_id)
+    log_out
     flash[:notice] = "ログアウトしました"
-    redirect_to new_session_path
+    redirect_to login_path
   end
 end

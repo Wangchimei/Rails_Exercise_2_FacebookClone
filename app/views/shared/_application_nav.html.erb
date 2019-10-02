@@ -1,0 +1,15 @@
+<% if logged_in? %>
+  <div class="">
+    <%= link_to "投稿を作成", new_feed_path%>
+    <%= link_to "フィード一覧", feeds_path%>
+  </div>
+  <div class="">
+    <%= link_to "プロフィール", user_path(current_user.id) %>
+    <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
+  </div>
+<% else %>
+  <div class="">
+    <%= link_to "新規登録", new_user_path %>
+    <%= link_to "ログイン", new_session_path %>
+  </div>
+<% end %>
