@@ -11,6 +11,9 @@
   </head>
 
   <body>
+  <%=render 'shared/application_nav'%>
+  <div class="container-fluid">
+
     <% flash.each do |key, value| %>
     <%= content_tag(:div, value, class: "#{key}") %>
     <% end %>
@@ -32,5 +35,6 @@
     <% end %>
 
     <%= yield %>
+    </div>
   </body>
 </html>

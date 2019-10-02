@@ -1,3 +1,27 @@
 @import "bootstrap";
 
+.bg-blue {
+  margin: 0;
+  padding: 0 0 2px 0;
+  background-color: #216EBB !important;
+}
+
+.nav-item {
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.nav-link {
+  color: #ffffff;
+  padding: 17px;
+  border-top: 3px solid #216EBB;
+  border-bottom: 3px solid #216EBB;
+}
+
+
+.nav-link:hover {
+  transition: 0.4s;
+  border-bottom: 3px solid #f4f4f4;
+  color: #f4f4f4;
+}
 

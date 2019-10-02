@@ -1,12 +1,9 @@
 @import "bootstrap";
 
-body{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+// Navbar
 .bg-blue {
+  margin: 0;
+  padding: 0 0 2px 0;
   background-color: #216EBB !important;
 }
 
@@ -17,7 +14,7 @@ body{
 
 .nav-link {
   color: #ffffff;
-  padding: 20px;
+  padding: 17px;
   border-top: 3px solid #216EBB;
   border-bottom: 3px solid #216EBB;
 }
