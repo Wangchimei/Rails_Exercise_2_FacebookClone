@@ -1,7 +1,8 @@
 class FeedsController < ApplicationController
   before_action :set_feed, only: [:show, :edit, :update, :destroy]
   # skip_before_action :logged_in_status, only: [:home]
-
+  layout 'user', except: [:home]
+  
   def home; end
   
   def index

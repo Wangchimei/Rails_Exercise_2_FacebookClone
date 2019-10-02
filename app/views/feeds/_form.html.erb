@@ -1,33 +1,34 @@
 <%= form_with(model: feed, local: :ture, url:new_or_edit) do |f|%>
 
-<% if @feed.errors.any? %>
-  <div class="">
-    <% @feed.errors.full_messages.each do |message| %>
-      <p><%=message%></p>
-    <%end%>
+<%= render 'shared/feed_error'%>
+
+<div class="card">
+  <div class="form-group text-center">
+    <div class="wrapper mt-3">
+      <p class="image"></p>
+      <p class="centered-text"><strong>Widen Your Social Universe<br></strong>for new ideas and perspectives</p>
+    </div>
+
+    <%=image_tag(@feed.image.url) if @feed.image && @feed.image.url%>
+    <div class="uploader-feed">
+      <%=f.file_field :image, class:"carrierwave-field-feed mx-auto card-img-top"%>
+      <%=f.hidden_field :image_cache%>
+    </div>
+
+    <div class="card-body">
+      <%=f.label :content, class:"sr-only"%>
+      <%=f.text_area :content, autofocus: true, class:"form-control", placeholder: "今日の気分は何でしょう ♪"%>
+    </div>
+
+    <div>
+      <%=f.hidden_field :user_id, value: current_user.id %>
+    </div>
+
+    <div class="mb-4">
+      <%= f.submit button_text, class: "btn btn-secondary mt-4"%>
+      <%= link_to "戻る", feeds_path, class: "btn btn-light mt-4"%>
+    </div>
+      <%end%>
   </div>
-<%end%>
+ </div>
 
-<div class="">
-  <%=f.label :content%>
-  <%=f.text_area :content%>
-</div>
-
-<div class="">
-  <%=f.label :image%>
-  <%=image_tag(@feed.image.url) if @feed.image && @feed.image.url%>
-  <%=f.file_field :image%>
-  <%=f.hidden_field :image_cache%>
-</div>
-
-<div class="">
-  <%=f.hidden_field :user_id, value: current_user.id %>
-</div>
-
-<div class="">
-  <%= f.submit button_text%>
-</div>
-
-<%end%>
-
-<%= link_to "戻る", feeds_path%>
