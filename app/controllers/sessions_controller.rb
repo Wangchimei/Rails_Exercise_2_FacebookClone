@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
   layout 'sessions'
   
   def new
+    @user = User.new
   end
 
   def create
@@ -12,7 +13,7 @@ class SessionsController < ApplicationController
       redirect_to feeds_path
       flash[:notice] = "ログインしました"
     else
-      flash.now[:danger] = "メールアドレスもしくはパスワードが正しくありません。"
+      flash.now[:danger] = "メールアドレスまたはパスワードが違います"
       render :new
     end
   end
@@ -20,6 +21,6 @@ class SessionsController < ApplicationController
   def destroy
     log_out
     flash[:notice] = "ログアウトしました"
-    redirect_to login_path
+    redirect_to new_session_path
   end
 end

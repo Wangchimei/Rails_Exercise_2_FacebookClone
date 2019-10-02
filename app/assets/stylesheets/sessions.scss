@@ -18,7 +18,7 @@ body {
 .form-signin {
   color: #fff;
   width: 100%;
-  max-width: 330px;
+  max-width: 420px;
   padding: 15px;
   margin: auto;
 }
@@ -30,15 +30,30 @@ body {
   padding: 10px;
   font-size: 16px;
 }
-.form-signin #email {
-  margin-bottom: -2px;
+
+.form-signin .name {
+  margin-bottom: 0.5rem;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
-.form-signin #password {
-  margin-bottom: 10px;
+.form-signin .email {
+  margin-bottom: 0.5rem;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin .password {
+  margin-bottom: 0.5rem;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+.alert-info{
+  line-height: 1.2rem;
+  text-align: left;
+}
+
+.error-container{
+  margin-top: 0rem;
 }
 
 hr {

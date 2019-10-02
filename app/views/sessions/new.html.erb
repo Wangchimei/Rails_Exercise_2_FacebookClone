@@ -1,23 +1,20 @@
 <div class="form-signin text-center">
-  <%=image_tag "logo_transparent.png", size: "120x120", class: "mb-2"%>
-<h1 class="h5 mb-5 font-weight-normal">Widen Your Social Universe</h1>
-
-<%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
-  <div id="email">
-    <%=f.label :email, class: "sr-only"%>
-    <%=f.email_field :email, autofocus: true, class: "form-control", placeholder: "メールアドレス"%>
-  </div>
-  <div id="password">
-    <%=f.label :password, class: "sr-only"%>
-    <%=f.password_field :password, class: "form-control", placeholder: "パスワード"%>
-  </div>
+  <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+    <div class="email">
+      <%=f.label :email, class: "sr-only"%>
+      <%=f.email_field :email, autofocus: true, class: "form-control", placeholder: "メールアドレス"%>
+    </div>
+    <div class="password">
+      <%=f.label :password, class: "sr-only"%>
+      <%=f.password_field :password, class: "form-control", placeholder: "パスワード"%>
+    </div>
+    <div>
+      <%=f.submit "ログイン", class: "mt-4 mb-3 text-muted btn btn-lg btn-light btn-block"%>
+    </div>
+  <%end%>
+  <hr>
   <div>
-    <%=f.submit "ログイン", class: "mt-3 mb-3 text-muted btn btn-lg btn-light btn-block"%>
+    <p class="h6 sign-up-link">または</p>
+    <%=link_to "新しいアカウントを作成", new_user_path, class: "mt-2 mb-2 text-muted btn btn-md btn-light btn-block"%>
   </div>
-<%end%>
-<hr>
-<div>
-<p class="h6 sign-up-link">または</p>
-<%=link_to "新しいアカウントを作成", new_user_path, class: "mt-2 mb-2 text-muted btn btn-md btn-light btn-block"%>
-</div>
 </div>
