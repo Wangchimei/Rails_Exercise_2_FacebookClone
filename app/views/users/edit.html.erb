@@ -1,11 +1,11 @@
-<h2 class="h4 mt-4 text-center">アカウント更新</h2>
+<h2 class="h4 my-4 text-center">アカウント更新</h2>
 
 <div class="card-custom">
   <div class="form-group text-center">
     <%= render 'shared/user_error' %>
 
 <%= form_with(model:@user, local: true) do |f| %>
-<div class="mt-4">
+<div class="pt-4">
   <%= image_tag(@user.avatar.url) if @user.avatar && @user.avatar.url%>
   <div class="uploader">
   <%= f.file_field :avatar, class:"carrierwave-field mx-auto"%>
@@ -21,6 +21,6 @@
   <%= f.text_field :email, class: "form-control mt-2"%>
 </div>
 
-<%= f.submit "保存", class: "btn btn-secondary mt-4"%>
+<%= f.submit "保存", class: "btn btn-secondary my-4"%>
 <%end%>
 </div>

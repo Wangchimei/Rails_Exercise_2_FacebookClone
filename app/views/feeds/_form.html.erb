@@ -4,14 +4,16 @@
 
 <div class="card">
   <div class="form-group text-center">
-    <div class="wrapper mt-3">
-      <p class="image"></p>
-      <p class="centered-text"><strong>Widen Your Social Universe<br></strong>for new ideas and perspectives</p>
-    </div>
-
+    <%if @feed.image.url.nil?%>
+      <div class="wrapper mt-3">
+        <p class="image"></p>
+        <p class="centered-text"><strong>Widen Your Social Universe<br></strong>for new ideas and perspectives</p>
+      </div>
+    <%end%>
+    
     <%=image_tag(@feed.image.url) if @feed.image && @feed.image.url%>
     <div class="uploader-feed">
-      <%=f.file_field :image, class:"carrierwave-field-feed mx-auto card-img-top"%>
+      <%=f.file_field :image, size: "460x300",class:"carrierwave-field-feed mx-auto card-img-top"%>
       <%=f.hidden_field :image_cache%>
     </div>
 
