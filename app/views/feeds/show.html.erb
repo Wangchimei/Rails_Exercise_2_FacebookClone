@@ -1,29 +1,59 @@
-<div class="">
-  <p><%=avatar(@feed.user, "show-profile")%></p>
-  <p><%=@feed.user.name%></p>
-  <p><%= distance_of_time_in_words(@feed.created_at, Time.now)%>前</p>
-</div>
-<div class="">
-  <%= @feed.content %>
-  <%= image_tag @feed.image.url if @feed.image.url %>
-</div>
-<div class="">
-  <%= link_to '戻る', feeds_path %>
-  <% if current_user.id == @feed.user_id %>
-    <%= link_to '投稿を編集', edit_feed_path(@feed) %>
-    <%= link_to '削除', feed_path(@feed),method: :delete, data: {confirm: "投稿を削除しますか？"} %>
-  <%end%>
+<div class="my-4 text-center"></div>
+
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="mr-2">
+            <%=avatar(@feed.user, "rounded-circle")%>
+          </div>
+          <div class="ml-2 h5">
+            <%=@feed.user.name%>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="text-muted h7 mb-2">
+        <%= distance_of_time_in_words(@feed.created_at, Time.now)%>前
+      </div>
+      <div class="card-image">
+        <%= image_tag @feed.image.url if @feed.image.url %>
+      </div>
+      <div class="card-text"></div>
+        <%= @feed.content %>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex justify-content-between align-items-center">
+          <p class="card-link pt-3">コメント<%= @feed.comments.count%>件</p>
+          <%= link_to '戻る', feeds_path, class: "card-link" %>
+        </div>
+        <% if current_user.id == @feed.user_id %>
+          <div>
+            <%= link_to '投稿を編集', edit_feed_path(@feed), class: "card-link" %>
+            <%= link_to '削除', feed_path(@feed),method: :delete, data: {confirm: "投稿を削除しますか？"}, class: "card-link" %>
+          </div>
+        <%end%>
+      </div>
+    </div>
+  </div>
+  <div class="container"> 
+        <%= render partial: 'comments/comment_form', comment: @comment, feed: @feed %>
+    </div>
+  </div>
+  <div class="container"> 
+
+  <% unless @feed.comments.count.zero? %>
+  <%= render @feed.comments %>
+  <% end %>
+
+ </div>
+
+
 </div>
 
-<% unless @feed.comments.count.zero? %>
-  <p>
-    コメント<%= @feed.comments.count%>件
-  </p>
-  <p>
-    <%= render @feed.comments %>
-  </p>
-<% end %>
 
-<p>
-  <%= render partial: 'comments/comment_form', comment: @comment, feed: @feed %>
-</p>
+
