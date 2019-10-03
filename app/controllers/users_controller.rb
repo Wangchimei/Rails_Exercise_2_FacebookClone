@@ -12,21 +12,22 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to user_path(@user.id)
+      redirect_to user_path(@user.id) and return
+      render layout:'session'
       flash[:notice] = "登録が完了しました"
     else
       render :new
     end
-    render layout:'session'
   end
 
   def edit
-
+    render layout: 'user'
   end
 
   def update
     if @user.update(user_params)
-      redirect_to user_path(@user.id)
+      redirect_to user_path(@user.id) and return
+      render layout: 'user'
       flash[:notice] = "情報が更新しました"
     else
       render :edit
@@ -37,13 +38,13 @@ class UsersController < ApplicationController
   def show
     if logged_in?
       if current_user != @user
-        redirect_to user_path(current_user)
+        redirect_to user_path(current_user) and return
         # render :file => "#{Rails.root}/public/404.html", layout: false, status: :not_found
       end
     else
-      redirect_to new_session_path
+      redirect_to new_session_path and return
     end
-
+    render layout: 'user'
   end
 
   private
