@@ -8,16 +8,18 @@
           <div class="mr-2">
             <%=avatar(@feed.user, "rounded-circle")%>
           </div>
-          <div class="ml-2 h5">
-            <%=@feed.user.name%>
+          <div>
+            <div class="ml-2 h5">
+              <%=@feed.user.name%>
+            </div>
+            <div class="text-muted h7 ml-2 post-time">
+              <%= distance_of_time_in_words(@feed.created_at, Time.now)%>前
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div class="card-body">
-      <div class="text-muted h7 mb-2">
-        <%= distance_of_time_in_words(@feed.created_at, Time.now)%>前
-      </div>
       <div class="card-image">
         <%= image_tag @feed.image.url if @feed.image.url %>
       </div>
@@ -41,19 +43,12 @@
     </div>
   </div>
   <div class="container"> 
-        <%= render partial: 'comments/comment_form', comment: @comment, feed: @feed %>
+      <%= render partial: 'comments/comment_form', comment: @comment, feed: @feed %>
     </div>
   </div>
-  <div class="container"> 
-
   <% unless @feed.comments.count.zero? %>
-  <%= render @feed.comments %>
+    <div class="container mt-4 mb-5"> 
+      <%= render @feed.comments %>
+    </div>
   <% end %>
-
- </div>
-
-
 </div>
-
-
-

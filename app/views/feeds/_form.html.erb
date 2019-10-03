@@ -13,10 +13,10 @@
 
     <div class="wrapper-sub card-body">
       <div>
-        <% if @feed.image && @feed.image.url%>
-          <%=image_tag(@feed.image.url)%>
-        <%end%>
-        <%# <%=image_tag(@feed.image.url) if @feed.image && @feed.image.url%>
+        <%# <% if @feed.image && @feed.image.url%>
+          <%# <%=image_tag(@feed.image.url)%> 
+        <%# <%end%> 
+        <%=image_tag(@feed.image.url) if @feed.image && @feed.image.url%>
         <%=f.file_field :image,class:"carrierwave-field-feed text-center"%>
         <%=f.hidden_field :image_cache%>
       </div>

@@ -24,22 +24,6 @@
   background-color: #f5f5f5;
 }
 
-// .comment-box {
-//   margin-top: 1.5rem;
-//   padding: 12px 20px;
-//   background-color: #fff;
-// }
-
-// .comment-area {
-//   position: relative;
-//   left: 8%;
-//   top: 10%;
-//   width: 100% !important;
-//   border: 2px solid #f4f4f4;;
-//   overflow: hidden;
-// }
-
-
 .btn-outline-primary {
   position: absolute;
   right: 3%;
@@ -52,4 +36,16 @@
   color: #fff;
   background-color: #518ac4;
   border: .06rem solid #216EBB;
+}
+
+.h7 {
+  font-size: 0.8rem;
+}
+
+.post-time {
+  margin-top: -0.6rem;
+}
+
+.comment-card {
+  margin-top: -0.2rem;
 }
