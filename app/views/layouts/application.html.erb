@@ -15,9 +15,11 @@
       <div class="container">
   
         <%=render 'shared/application_nav'%>
-  
+
         <% flash.each do |key, value| %>
-        <%= content_tag(:div, value, class: "#{key}") %>
+          <div class="alert alert-info">
+          <%= content_tag(:div, value, class: "#{key}") %>
+          </div>
         <% end %>
         
         <div class="main-content">

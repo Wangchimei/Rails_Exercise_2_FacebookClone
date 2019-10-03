@@ -1,11 +1,13 @@
 @import "bootstrap";
-
-.index-profile{
- width: 100px;
- height: 100px;
- background-size: cover;
- display: block;
- border-radius: 100px;
- -webkit-border-radius: 100px;
- -moz-border-radius: 100px;
+/*
+ *= require font-awesome
+ */
+ .cardbox {
+  border-radius: 3px;
+  margin-bottom: 20px;
+  padding: 0px !important;
+}
+.rounded-circle{
+ width: 60px;
+ height: 60px;
 }
