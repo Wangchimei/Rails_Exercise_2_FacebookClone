@@ -4,17 +4,22 @@
 
 <div class="card">
   <div class="form-group text-center">
+    <div class="wrapper">
     <%if @feed.image.url.nil?%>
-      <div class="wrapper mt-3">
-        <p class="image"></p>
+        <%= image_tag "sample_image.jpg", class:"sample-image"%>
         <p class="centered-text"><strong>Widen Your Social Universe<br></strong>for new ideas and perspectives</p>
-      </div>
     <%end%>
-    
-    <%=image_tag(@feed.image.url) if @feed.image && @feed.image.url%>
-    <div class="uploader-feed">
-      <%=f.file_field :image, size: "460x300",class:"carrierwave-field-feed mx-auto card-img-top"%>
-      <%=f.hidden_field :image_cache%>
+    </div>
+
+    <div class="wrapper-sub card-body">
+      <div>
+        <% if @feed.image && @feed.image.url%>
+          <%=image_tag(@feed.image.url)%>
+        <%end%>
+        <%# <%=image_tag(@feed.image.url) if @feed.image && @feed.image.url%>
+        <%=f.file_field :image,class:"carrierwave-field-feed text-center"%>
+        <%=f.hidden_field :image_cache%>
+      </div>
     </div>
 
     <div class="card-body">
@@ -27,10 +32,10 @@
     </div>
 
     <div class="mb-4">
-      <%= f.submit button_text, class: "btn btn-secondary mt-4"%>
-      <%= link_to "戻る", feeds_path, class: "btn btn-light mt-4"%>
+      <%= f.submit button_text, class: "btn btn-secondary mt-4 mr-2"%>
+      <%= link_to "戻る", feeds_path, class: "btn btn-light mt-4 ml-2"%>
     </div>
       <%end%>
   </div>
- </div>
+</div>
 

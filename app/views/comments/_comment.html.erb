@@ -1,5 +1,5 @@
 <div>
-  <%= avatar(comment.user) %>
+  <%= avatar(comment.user, "show-profile") %>
   <%= distance_of_time_in_words(comment.created_at, Time.now)%>前
   <%= comment.user.name%>
   <%= comment.content %>

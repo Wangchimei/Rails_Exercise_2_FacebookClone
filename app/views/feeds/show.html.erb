@@ -1,5 +1,5 @@
 <div class="">
-  <p><%=avatar(@feed.user)%></p>
+  <p><%=avatar(@feed.user, "show-profile")%></p>
   <p><%=@feed.user.name%></p>
   <p><%= distance_of_time_in_words(@feed.created_at, Time.now)%>前</p>
 </div>

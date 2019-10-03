@@ -1,13 +1,11 @@
 <div class="">ニュースフィード</div>
-
-<div class="">
-  <%= link_to '投稿を作成', new_feed_path %>
-</div>
-
-<div class="">
+<div class="row">
+<div class="col-lg-6 offset-lg-3">
   <% @feeds.each do |feed| %>
-    <div class="">
-      <p><%= avatar(feed.user) %></p>
+    <div class="cardbox shadow-lg bg-white">
+    <div class="cardbox-heading">
+
+      <p><%= avatar(feed.user, "index-profile") %></p>
       <p><%=feed.user.name%></p>
       <p><%= distance_of_time_in_words(feed.created_at, Time.now)%>前</p>
     </div>
@@ -18,11 +16,20 @@
     <div class="">
       <%= link_to '詳細', feed_path(feed) %>
     </div>
+
+
+
     <% if current_user.id == feed.user_id %>
-      <div class=""> 
-        <%= link_to '投稿を編集', edit_feed_path(feed) %>
-        <%= link_to '削除', feed_path(feed),method: :delete, data: {confirm: "投稿を削除しますか？"} %>
+      <div class="dropdown float-right"> 
+       <button class="btn btn-flat btn-flat-icon" type="button" data-toggle="dropdown" aria-expanded="false">
+				<em class="fa fa-ellipsis-h"></em>
+			   </button>
+        <div class="dropdown-menu dropdown-scale dropdown-menu-right" role="menu" style="position: absolute; transform: translate3d(-136px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
+        <%= link_to '投稿を編集', edit_feed_path(feed), class: "dropdown-item" %>
+        <%= link_to '削除', feed_path(feed),method: :delete, data: {confirm: "投稿を削除しますか？"}, class: "dropdown-item" %>
+        </div>
       </div>
     <%end%> 
   <%end%>
+</div>
 </div>

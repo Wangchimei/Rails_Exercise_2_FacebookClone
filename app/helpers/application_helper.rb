@@ -1,10 +1,10 @@
 module ApplicationHelper
-  def avatar(user)
-    @avatar = user.avatar.url
+  def avatar(user, type)
+    @avatar = user.avatar
     if @avatar.nil?
-      @avatar_user = image_tag("default-user.png")
+      @avatar_user = image_tag("default-user.png", alt:user.name, class: "#{type}")
     else
-      @avatar_user = image_tag(@avatar)
+      @avatar_user = image_tag(@avatar.url, alt:user.name, class: "#{type}")
     end
     @avatar_user
   end
