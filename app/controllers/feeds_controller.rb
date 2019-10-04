@@ -39,6 +39,10 @@ class FeedsController < ApplicationController
   end
 
   def edit
+    unless @feed.user_id == current_user.id
+      flash[:error] = "権限がありません"
+      redirect_to feeds_path
+    end
   end
 
   def update
