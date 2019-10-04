@@ -47,3 +47,5 @@ group :test do
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
 end
+
+gem 'rails_12factor', group: :production
