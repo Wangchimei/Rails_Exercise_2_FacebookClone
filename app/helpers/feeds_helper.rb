@@ -8,7 +8,7 @@ module FeedsHelper
   end
 
   def button_text
-    if action_name == "new"
+    if action_name == "new" || action_name == "create" || action_name == "confirm"
        return "投稿"
     elsif action_name == "edit"
        return "保存"

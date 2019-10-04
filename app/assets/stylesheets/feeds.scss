@@ -24,6 +24,7 @@
   background-color: #f5f5f5;
 }
 
+
 .btn-outline-primary {
   position: absolute;
   right: 3%;
@@ -44,4 +45,42 @@
 
 .comment-card {
   margin-top: -0.2rem;
+}
+
+// Sample image
+.wrapper {
+  position: relative;
+  margin-top: 2rem;
+}
+
+.sample-image {
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.centered-text {
+  width: 100%;
+  display: inline-block;
+  text-shadow: 0 .05rem .1rem #00000080;
+  font-size: 1.2rem;
+  color: white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%)
+}
+
+.wrapper-sub {
+  background-color:#fff;
+  padding: 8px;
+  width: 50%; 
+}
+
+.carrierwave-field-feed {
+  margin-left: 10%;
+  max-width: 100%;
+  border: none;
+  color: #ddd;
+  cursor: pointer;
+  font-size: 15px;
 }

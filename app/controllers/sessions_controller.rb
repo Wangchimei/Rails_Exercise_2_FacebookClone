@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    log_out
+    session.delete(:user_id)
     flash[:notice] = "ログアウトしました"
     redirect_to new_session_path
   end

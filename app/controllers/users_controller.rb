@@ -1,19 +1,16 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :show]
   # skip_before_action :logged_in_status,only:[:new, :create]
-  # layout 'session', only:[:new, :create]
-  layout 'user', only: [:edit, :update, :show]
+  layout 'session', only: [:new, :create]
 
   def new
     @user = User.new
-    render layout:'session'
   end
 
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to user_path(@user.id) and return
-      render layout:'session'
+      redirect_to user_path(@user.id)
       flash[:notice] = "登録が完了しました"
     else
       render :new
@@ -27,12 +24,11 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       redirect_to user_path(@user.id) and return
-      render layout: 'user'
       flash[:notice] = "情報が更新しました"
+      render layout: 'user'
     else
       render :edit
     end
-
   end
   
   def show

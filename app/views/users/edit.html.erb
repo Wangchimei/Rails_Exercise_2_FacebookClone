@@ -4,23 +4,24 @@
   <div class="form-group text-center">
     <%= render 'shared/user_error' %>
 
-<%= form_with(model:@user, local: true) do |f| %>
-<div class="pt-4">
-  <%= image_tag(@user.avatar.url) if @user.avatar && @user.avatar.url%>
-  <div class="uploader">
-  <%= f.file_field :avatar, class:"carrierwave-field mx-auto"%>
-  <%= f.hidden_field :avatar_cache%>
-  </div>
-</div>
-<div class="card-form">
-  <%= f.label :name, class: "sr-only" %>
-  <%= f.text_field :name, autofocus: true, class: "form-control mt-4"%>
-</div>
-<div class="card-form">
-  <%= f.label :email, class: "sr-only"%>
-  <%= f.text_field :email, class: "form-control mt-2"%>
-</div>
+    <%= form_with(model:@user, local: true) do |f| %>
+      <div class="pt-4">
+        <%= image_tag(@user.avatar.url) if @user.avatar && @user.avatar.url%>
+        <div class="uploader">
+        <%= f.file_field :avatar, class:"carrierwave-field mx-auto"%>
+        <%= f.hidden_field :avatar_cache%>
+        </div>
+      </div>
+      <div class="card-form">
+        <%= f.label :name, class: "sr-only" %>
+        <%= f.text_field :name, autofocus: true, class: "form-control mt-4"%>
+      </div>
+      <div class="card-form">
+        <%= f.label :email, class: "sr-only"%>
+        <%= f.text_field :email, class: "form-control mt-2"%>
+      </div>
 
-<%= f.submit "保存", class: "btn btn-secondary my-4"%>
-<%end%>
+      <%= f.submit "保存", class: "btn btn-secondary my-4"%>
+    <%end%>
+  </div>
 </div>

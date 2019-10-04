@@ -1,14 +1,39 @@
-<h1>ニュースフィードの確認</h1>
+<h2 class="h4 my-4 text-center">ニュースフィードの確認</h2>
 
 <%= form_with(model: @feed, local: true, url:feeds_path) do |f| %>
-  <%= f.hidden_field :content %>
-  <%= image_tag(@feed.image.url) if @feed.image && @feed.image.url %>
-  <%= f.hidden_field :image_cache %> 
-  <%= f.hidden_field :user_id %> 
-  <div class=""></div>
-    <p><%= @feed.content %></p>
-    <%= f.submit "投稿する"%>
-    <%= f.submit "戻る", name: "back"%>
+
+<%= render 'shared/feed_error'%>
+
+<div class="card">
+  <div class="form-group text-center">
+    <div class="wrapper">
+    <%if @feed.image.url.nil?%>
+        <%= image_tag "sample_image.jpg", class:"sample-image"%>
+        <p class="centered-text"><strong>Widen Your Social Universe<br></strong>for new ideas and perspectives</p>
+    <%end%>
+    </div>
+
+    <div class="wrapper-sub card-body">
+      <div>
+        <%=image_tag(@feed.image.url) if @feed.image && @feed.image.url%>
+        <%=f.hidden_field :image_cache, class:"carrierwave-field-feed text-center"%>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <%= f.hidden_field :content %>
+      <%= @feed.content %>
+    </div>
+
+    <div>
+      <%= f.hidden_field :user_id %>
+    </div>
+
+    <div class="mb-4">
+      <%= f.submit "投稿", class: "btn btn-secondary mt-4 mr-2"%>
+      <%= f.submit "戻る", name: "back", class: "btn btn-light mt-4 ml-2"%>
+    </div>
+    <%end%>
   </div>
-<%end%>
+</div>
 

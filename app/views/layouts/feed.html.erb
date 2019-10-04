@@ -11,6 +11,7 @@
   </head>
 
   <body class="site-wrapper">
+    <div class="container">
 
       <%=render 'shared/application_nav'%>
 
@@ -21,9 +22,12 @@
       <% end %>
 
       <div class="main-content">
-      <%= yield %>
+        <%= yield %>
       </div>
+  
+    </div>
 
     <%=render "shared/footer"%>
+    
   </body>
 </html>

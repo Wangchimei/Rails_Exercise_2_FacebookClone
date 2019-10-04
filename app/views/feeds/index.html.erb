@@ -5,12 +5,12 @@
         <div class="card-header">
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex justify-content-between align-items-center">
-                <div class="mr-2">
-                  <%= avatar(feed.user, "rounded-circle") %>
-                </div>
-                <div class="ml-2 h5">
-                  <%=feed.user.name%>
-                </div>
+              <div class="mr-2">
+                <%= avatar(feed.user, "rounded-circle") %>
+              </div>
+              <div class="ml-2 h5">
+                <%=feed.user.name%>
+              </div>
             </div>
             <% if current_user.id == feed.user_id %>
               <div class="dropdown">

@@ -1,7 +1,7 @@
 class FeedsController < ApplicationController
   before_action :set_feed, only: [:show, :edit, :update, :destroy]
   # skip_before_action :logged_in_status, only: [:home]
-  layout 'feed', only: [:index, :show, :destroy]
+  layout 'feed', expect: [:home]
 
   def home
     render layout: 'home'
@@ -9,6 +9,7 @@ class FeedsController < ApplicationController
   
   def index
     @feeds = Feed.all.order(created_at: :desc)
+    # render layout: 'feed'
   end
 
   def new
@@ -17,7 +18,6 @@ class FeedsController < ApplicationController
     else
     @feed = Feed.new
     end
-    render layout: 'user'
   end
  
   def create
@@ -26,8 +26,7 @@ class FeedsController < ApplicationController
       render :new
     else 
       if @feed.save
-        redirect_to feeds_path and return
-        render layout: 'user'
+        redirect_to feeds_path
         flash[:notice] = "フィードが投稿されました"
       else
         render :new
@@ -40,13 +39,11 @@ class FeedsController < ApplicationController
   end
 
   def edit
-    render layout: 'user'
   end
 
   def update
     if @feed.update(feed_params)
-      redirect_to feeds_path and return
-      render layout: 'user'
+      redirect_to feeds_path
       flash[:notice] = "フィードが更新されました"
     else
       render :edit

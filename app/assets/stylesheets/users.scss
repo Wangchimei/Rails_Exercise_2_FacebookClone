@@ -95,7 +95,7 @@
   width: 100%;
   display: inline-block;
   text-shadow: 0 .05rem .1rem #00000080;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: white;
   position: absolute;
   left: 50%;
@@ -108,11 +108,11 @@
   padding: 8px;
 }
 
-.carrierwave-field-feed {
-  margin-left: 10%;
-  max-width: 100%;
-  border: none;
-  color: #ddd;
-  cursor: pointer;
-  font-size: 15px;
+.alert-info{
+  line-height: 1.2rem;
+  text-align: left;
+}
+
+.error-container{
+  margin-top: 0rem;
 }
