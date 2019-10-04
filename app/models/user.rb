@@ -10,4 +10,11 @@ class User < ApplicationRecord
   validates :password, confirmation: true, on: :update
   has_secure_password
   mount_uploader :avatar, ImageUploader
+  
+  # before_create :Avatar.default
+  after_initialize :set_default
+
+  def set_default
+    self.avatar ||= Avatar.default
+  end
 end
