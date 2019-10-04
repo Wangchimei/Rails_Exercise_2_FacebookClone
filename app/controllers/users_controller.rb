@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       redirect_to user_path(@user.id)
-      flash[:notice] = "登録が完了しました"
+      flash[:notice] = "登録が完了しました。もう一度ログインしてください。"
     else
       render :new
     end
