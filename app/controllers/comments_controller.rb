@@ -7,13 +7,17 @@ class CommentsController < ApplicationController
     #   .create(content: params[:comment][:content],
     #           feed_id: @feed.id,
     #           user_id: current_user.id)
-    redirect_to feed_path(@feed)
+    flash[:notice] = "コメントしました"
+    redirect_to feed_path(@feed) and return
+    render layout: 'feed'
   end
 
   def destroy
     @comment = @feed.comments.find(params[:id])
     @comment.destroy
-    redirect_to feed_path(@feed)
+    flash[:notice] = "コメントを削除しました"
+    redirect_to feed_path(@feed) and return
+    render layout: 'feed'
   end
 
   private
