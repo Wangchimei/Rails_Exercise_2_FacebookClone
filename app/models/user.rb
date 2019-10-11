@@ -10,5 +10,5 @@ class User < ApplicationRecord
   validates :password, confirmation: true, on: :update
   has_secure_password
   mount_uploader :avatar, ImageUploader
-  
+
 end
